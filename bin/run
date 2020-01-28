@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/environment"
+
+#CLI.new.run
+binding.pry
+
+
+#chmod 777 bin/run
+#everyone can read, write, execute
+
+
+#windows has a specific end of line character
+#wsl is confused by the end of line
