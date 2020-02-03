@@ -1,10 +1,6 @@
 class Pokemon::PokemonController
   attr_accessor :current_pokemon
 
-  # def initialize
-  #   self.welcome
-  # end
-
   def get_pokemon(input)
     response = Pokemon::API.new.get_pokemon(input)
     if response.code >= 200 && response.code <= 299
@@ -30,7 +26,7 @@ class Pokemon::PokemonController
       puts self.current_pokemon.name
       self.menu
     elsif input == "2"
-      puts self.current_pokemon.abilities
+      self.print_abilities
       self.menu
     else
       puts "invalid input"
@@ -56,6 +52,12 @@ class Pokemon::PokemonController
   def error
     puts "There is no pokemon by that name!"
     self.welcome
+  end
+
+  def print_abilities
+    self.current_pokemon.abilities.each_with_index do |ability, index|
+      puts "#{index+1}. #{ability["ability"]["name"]}"
+    end
   end
 
 end

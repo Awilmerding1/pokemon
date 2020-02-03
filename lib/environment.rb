@@ -3,7 +3,7 @@ require 'pry'
 require 'httparty'
 
 require_relative './pokemon'
-require_relative './cli'
+require_relative './pokemon_controller'
 require_relative './api'
 
 
@@ -13,10 +13,6 @@ module Pokemon
 end
 
 
-
-require_relative './pokemon'
-require_relative './cli'
-require_relative './api'
 
 #starting point of require is top level dir
 #starting point of require_relative is the file its on
