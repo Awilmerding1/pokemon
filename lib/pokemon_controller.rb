@@ -2,13 +2,17 @@ class Pokemon::PokemonController
   attr_accessor :current_pokemon
 
   def get_pokemon(input)
-    response = Pokemon::API.new.get_pokemon(input)
-    if response.code >= 200 && response.code <= 299
-      self.current_pokemon = Pokemon::Pokemon.new(response)
-      self.prompt_user
+    if Pokemon::Pokemon.get_pokemon_by_name(input)
+      self.current_pokemon = Pokemon::Pokemon.get_pokemon_by_name(input)
     else
-      self.error
+      response = Pokemon::API.new.get_pokemon(input)
+      if response.code >= 200 && response.code <= 299
+        self.current_pokemon = Pokemon::Pokemon.new(response)
+      else
+        self.error
+      end
     end
+    self.prompt_user
   end
 
   def welcome

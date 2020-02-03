@@ -19,7 +19,15 @@ class Pokemon::Pokemon
     @abilities
   end
 
+  def self.all
+    @@all
+  end
 
+  def self.get_pokemon_by_name(name)
+    self.all.detect do |pokemon|
+      pokemon.name == name
+    end
+  end
 
 
 end
