@@ -3,7 +3,7 @@
 require_relative "../lib/environment"
 
 #CLI.new.run
-binding.pry
+Pokemon::PokemonController.new.welcome
 
 
 #chmod 777 bin/run

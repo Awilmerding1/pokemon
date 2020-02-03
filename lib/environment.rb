@@ -2,10 +2,17 @@ require_relative "./pokemon/version"
 require 'pry'
 require 'httparty'
 
+require_relative './pokemon'
+require_relative './cli'
+require_relative './api'
+
+
 module Pokemon
   class Error < StandardError; end
   # Your code goes here...
 end
+
+
 
 require_relative './pokemon'
 require_relative './cli'
